@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calisthenics Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    section h2 {
+  text-align: center;   /* centers the heading text */
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #dd8c0b;        /* keep heading color yellow as you requested */
+}
+
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 12px;
+ 
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #dd8c0b;
+} 
+.logo img, .logo i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.logo:hover img, .logo:hover i {
+  transform: scale(1.1);
+  color: #161412;
+}  
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #f39c12;
+}
+.floating-phone {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #f39c12;
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(243,156,18,0.6);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 1.5s infinite;
+}
+
+.floating-phone:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(243,156,18,0.9);
+  background: #d35400;
+}
+
+.floating-phone i {
+  pointer-events: none;
+}
+
+
+
+    header {
+      background: url('/anchortag/calisthenics/images/hero\ background.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content .banner {
+      background: #e74c3c;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-content .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #f39c12;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .hero-content .btn:hover {
+      background: #d35400;
+    }
+     .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.6rem;
+  max-width: 1200px;       /* keeps cards from stretching full width */
+  margin: 0 auto;          /* centers the grid */
+  padding: 0 2rem;         /* adds space left and right */
+}
+    .service-card {
+      background: #222;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      color: #f39c12;
+      margin-bottom: 1rem;
+    }
+  .service-card h3 {
+      margin-bottom: 1rem;
+      color: #f39c12;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+   
+
+   .carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 0 4rem;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  margin-left: 0px;
+  padding: 0 1rem;
+}
+
+.workout-card {
+  flex: 0 0 300px;
+  margin: 0 1rem;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workout-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.workout-card:hover {
+  transform: scale(0.98); /* smooth zoom-out */
+  animation: glowPulse 1.5s infinite; /* glow only */
+}
+
+.workout-card:hover img {
+  transform: scale(0.95); /* image zoom-out */
+}
+
+@keyframes glowPulse {
+  0%   { box-shadow: 0 0 15px rgba(243,156,18,0.5); }
+  50%  { box-shadow: 0 0 25px rgba(243,156,18,0.8); }
+  100% { box-shadow: 0 0 15px rgba(243,156,18,0.5); }
+}
+
+
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f39c12;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-btn:hover { background: #d35400; }
+.scroll-btn.left { left: 10px; }
+.scroll-btn.right { right: 10px; }
+
+
+    .workout-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .workout-card .content {
+      padding: 1rem;
+    }
+
+    .workout-card h3 {
+      margin: 0 0 0.5rem;
+      color: #f39c12;
+    }
+
+    .workout-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #000;
+      color: #aaa;
+    }
+    .enquiry-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #222;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.enquiry-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.enquiry-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.enquiry-form input::placeholder,
+.enquiry-form textarea::placeholder {
+  color: #aaa;
+}
+
+.enquiry-form button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #f39c12;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.enquiry-form button:hover {
+  background: #d35400;
+}
+/* Base input styles */
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: #f39c12;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* smooth transition */
+  outline: none; /* remove default browser outline */
+}
+/* Glow animation keyframes */
+@keyframes glowPulse {
+  0%   { box-shadow: 0 0 10px rgba(243,156,18,0.5); }
+  50%  { box-shadow: 0 0 20px rgba(243,156,18,0.9); }
+  100% { box-shadow: 0 0 10px rgba(243,156,18,0.5); }
+}
+
+/* Explore Workouts button glow */
+.hero-content .btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #f39c12;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  animation: glowPulse 2s infinite; /* glowing effect */
+}
+
+.hero-content .btn:hover {
+  background: #d35400;
+  transform: scale(1.05); /* subtle zoom on hover */
+}
+
+/* What We Offer cards glow */
+.service-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  animation: glowPulse 2s infinite; /* glowing effect */
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.03); /* lift + zoom */
+}
+
+/* Focus animation */
+.enquiry-form input:focus,
+.enquiry-form select:focus,
+.enquiry-form textarea:focus {
+  background: #444; /* slightly lighter background */
+  box-shadow: 0 0 10px rgba(243,156,18,0.8); /* glowing orange border */
+  transform: scale(1.02); /* subtle zoom-in */
+}
+
+/* Label animation */
+.enquiry-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #f39c12;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.enquiry-form input:focus + label,
+.enquiry-form select:focus + label,
+.enquiry-form textarea:focus + label {
+  color: #f39c12; /* highlight label when field is active */
+}
+
+  </style>
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">
+ <img src="/anchortag/calisthenics/images/logo img2.jpg" alt="Calisthenics Logo" />    <span>Shivam Tomar</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#header">Home</a></li>
+    <li><a href="#workouts">Workouts</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<!-- Floating Phone Icon -->
+<a href="tel:+91-9131520065" class="floating-phone">
+  <i class="fas fa-phone"></i>
+</a>
+
+  <header id="header">
+    <div class="hero-content">
+      <h1>START YOUR CALISTHENICS JOURNEY NOW</h1>
+      <div class="banner">
+        Feeling lost and unsure about where to begin with your calisthenics journey?<br>
+        Don't waste any more time!<br>
+        Discover the right way to start with my unique programs.
+      </div>
+      <a href="#workouts" class="btn">Explore Workouts</a>
+    </div>
+  </header>
+    <section>
+    <h2>What We Offer</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-running"></i>
+        <h3>Beginner Coaching</h3>
+        <p>Step-by-step guidance for newcomers to calisthenics. Learn the basics safely and effectively.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-dumbbell"></i>
+        <h3>Strength Programs</h3>
+        <p>Progressive routines to master advanced moves like the front lever, planche, and muscle-up.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Mobility & Recovery</h3>
+        <p>Dynamic warm-ups, stretching, and recovery sessions to keep your body flexible and injury-free.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-users"></i>
+        <h3>Group Classes</h3>
+        <p>Train with others in motivating group sessions, combining fun challenges with expert coaching.</p>
+      </div>
+    </div>
+  </section>
+<section id="workouts">
+  <h2>Workout Programs</h2>
+  <div class="carousel">
+    <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-track">
+      
+
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/pullups.jpeg" alt="Pull-Ups"/>
+  <div class="content">
+    <h3>Pull-Ups</h3>
+    <p>Develop upper body strength with progressive pull-up variations.</p>
+  </div>
+</div>
+
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/ring dips.jpeg" alt="Dips"/>
+  <div class="content">
+    <h3>Dips</h3>
+    <p>Strengthen triceps and chest with parallel bar dips.</p>
+  </div>
+</div>
+
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/squats.jpeg" alt="Squats"/>
+  <div class="content">
+    <h3>Squats</h3>
+    <p>Build powerful legs with bodyweight squat progressions.</p>
+  </div>
+</div>
+
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/l sit.jpeg" alt="L-Sit"/>
+  <div class="content">
+    <h3>L-Sit</h3>
+    <p>Improve core stability and endurance with static L-sit holds.</p>
+  </div>
+</div>
+
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/pistols.jpeg" alt="Pistol Squat"/>
+  <div class="content">
+    <h3>Pistol Squat</h3>
+    <p>Challenge balance and leg strength with single-leg squats.</p>
+  </div>
+</div>
+
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/front lever.jpg" alt="Front Lever"/>
+  <div class="content">
+    <h3>Front Lever</h3>
+    <p>Train core and back strength with progressive front lever drills.</p>
+  </div>
+</div>
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/abs.jpeg" alt="Back Lever"/>
+  <div class="content">
+    <h3>Back Lever</h3>
+    <p>Train core and back strength with progressive back lever drills.</p>
+  </div>
+</div>
+
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/planche.jpeg" alt="Planche"/>
+  <div class="content">
+    <h3>Planche</h3>
+    <p>Master advanced balance and pushing strength with planche training.</p>
+  </div>
+</div>
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/ringpush.jpeg" alt="Push-Ups"/>
+  <div class="content">
+    <h3>Push-Ups</h3>
+    <p>Develop upper body strength with progressive push-up variations.</p>
+  </div>
+</div>
+<div class="workout-card">
+        <img src="/anchortag/calisthenics/images/warup.jpeg" alt="Warm Up"/>
+        <div class="content">
+          <h3>Warm-Up Routine</h3>
+          <p>Activate your body with dynamic stretches and mobility drills.</p>
+        </div>
+      </div>
+        <div class="workout-card">
+        <img src="/anchortag/calisthenics/images/ring muscleup.jpeg" alt="Muscle-up"/>
+        <div class="content">
+          <h3>Muscle-up</h3>
+          <p>Master the muscle-up with weekly follow-along technique drills.</p>
+        </div>
+      </div>
+
+<div class="workout-card">
+  <img src="/anchortag/calisthenics/images/burpees.jpeg" alt="Burpees"/>
+  <div class="content">
+    <h3>Burpees</h3>
+    <p>Boost endurance and full-body conditioning with explosive burpees.</p>
+  </div>
+</div>
+    </div>
+    <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
+
+  <section id="contact">
+  <h2>Enquiry Form</h2>
+  <form class="enquiry-form" id="enquiryForm" action="#" method="post">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+    </div>
+
+    <div class="form-group">
+      <label for="service">Select Service</label>
+      <select id="service" name="service" required>
+        <option value="">-- Choose a Service --</option>
+        <option value="beginner">Beginner Coaching</option>
+        <option value="strength">Strength Programs</option>
+        <option value="mobility">Mobility & Recovery</option>
+        <option value="group">Group Classes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your enquiry here..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn">Submit Enquiry</button>
+  </form>
+</section>
+
+  <footer>
+    &copy; Shivam Tomar. All rights reserved.
+  </footer>
+
+<!-- Load EmailJS library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Initialize EmailJS -->
+<script type="text/javascript">
+  (function(){
+    emailjs.init({
+      publicKey: "1pAcqTOlRKZQCY4WW",
+    });
+  })();
+</script>
+<script>
+  document.getElementById('enquiryForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_5gkq3ta', 'template_5z1r9di', this)
+      .then(function() {
+        alert('Enquiry sent successfully!');
+        document.getElementById('enquiryForm').reset();
+      }, function(error) {
+        alert('Failed to send enquiry. Please try again later.');
+        console.log('FAILED...', error);
+      });
+  });
+</script>
+<script>
+    const track = document.querySelector('.carousel-track');
+    let cards = document.querySelectorAll('.workout-card');
+    const leftBtn = document.querySelector('.scroll-btn.left');
+    const rightBtn = document.querySelector('.scroll-btn.right');
+    const cardScrollDistance = cards[0].offsetWidth + 32; 
+
+    let index = 1;
+    let isTransitioning = false; // Flag to prevent rapid clicks
+
+    // Cloning for infinite loop effect
+    const firstClone = cards[0].cloneNode(true);
+    const lastClone = cards[cards.length - 2].cloneNode(true);
+    firstClone.id = "first-clone";
+    lastClone.id = "last-clone";
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, cards[0]);
+
+    // Recalculate cards to include clones
+    cards = document.querySelectorAll('.workout-card');
+
+    // Initial positioning to hide the lastClone
+    track.style.transform = `translateX(${-cardScrollDistance * index}px)`;
+
+    function updateCarousel() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        track.style.transition = "transform 0.5s ease-in-out";
+        track.style.transform = `translateX(${-cardScrollDistance * index}px)`;
+    }
+    rightBtn.addEventListener('click', () => {
+        if (index >= cards.length - 1) return;
+        index++;
+        updateCarousel();
+    });
+
+    leftBtn.addEventListener('click', () => {
+        if (index <= 0) return;
+        index--;
+        updateCarousel();
+    });
+
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        // Loop back to the start/end without visible transition
+        if (cards[index].id === "first-clone") {
+            track.style.transition = "none";
+            index = 1;
+            track.style.transform = `translateX(${-cardScrollDistance * index}px)`;
+        }
+        if (cards[index].id === "last-clone") {
+            track.style.transition = "none";
+            index = cards.length - 2;
+            track.style.transform = `translateX(${-cardScrollDistance * index}px)`;
+        }
+        });
+
+   
+    const allCards = document.querySelectorAll('.workout-card');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    allCards.forEach(card => observer.observe(card));
+</script>
+<script>let direction = 1; // 1 = forward, -1 = backward
+
+setInterval(() => {
+  index += direction;
+
+  // If we reach the end, reverse direction
+  if (index >= cards.length - 1) {
+  direction = -1;
+  index = cards.length - 2;
+}
+if (index <= 0) {
+  direction = 1;
+  index = 1;
+}
+
+
+  updateCarousel();
+}, 4000); // every 4 seconds
+</script>
+
+</body>
+</html>
