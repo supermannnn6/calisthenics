@@ -8,16 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #111;
-      color: #fff;
-    }
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #111;
+    color: #fff;
+    overflow-x: hidden; 
+  }
     section h2 {
-  text-align: center;   /* centers the heading text */
+  text-align: center;  
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #dd8c0b;        /* keep heading color yellow as you requested */
+  color: #dd8c0b;        
 }
 
     .navbar {
@@ -32,7 +33,7 @@
 }
 
 .logo img {
-  height: 50px;
+  height: 40px;
   margin-right: 12px;
  
 }
@@ -42,6 +43,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: #dd8c0b;
+  text-decoration: none;
 } 
 .logo img, .logo i {
   transition: transform 0.3s ease, color 0.3s ease;
@@ -54,6 +56,8 @@
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
@@ -61,6 +65,7 @@
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
+ 
 }
 
 .nav-links li a:hover {
@@ -94,16 +99,15 @@
 
 
     header {
-      background: url('images/hero\ background.jpg') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-    }
-
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('images/hero-background.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
     header::after {
       content: "";
       position: absolute;
@@ -117,11 +121,10 @@
       max-width: 800px;
     }
 
-    .hero-content h1 {
-      font-size: 3rem;
-      color: #fff;
-      margin-bottom: 1rem;
-    }
+.hero-content h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem); 
+    margin-bottom: 1rem;
+  }
 
     .hero-content .banner {
       background: #e74c3c;
@@ -146,13 +149,13 @@
       background: #d35400;
     }
      .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.6rem;
-  max-width: 1200px;       /* keeps cards from stretching full width */
-  margin: 0 auto;          /* centers the grid */
-  padding: 0 2rem;         /* adds space left and right */
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
     .service-card {
       background: #222;
       border-radius: 10px;
@@ -179,11 +182,11 @@
     }
    
 
-   .carousel {
-  position: relative;
-  overflow: hidden;
-  margin: 0 4rem;
-}
+ .carousel {
+    position: relative;
+    overflow: hidden;
+    margin: 0 1rem;
+  }
 
 .carousel-track {
   display: flex;
@@ -201,6 +204,10 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.workout-card {
+    flex: 0 0 280px; 
+    margin: 0 0.5rem;
+  }
 
 .workout-card img {
   width: 100%;
@@ -210,12 +217,12 @@
 }
 
 .workout-card:hover {
-  transform: scale(0.98); /* smooth zoom-out */
-  animation: glowPulse 1.5s infinite; /* glow only */
+  transform: scale(0.98);
+  animation: glowPulse 1.5s infinite; 
 }
 
 .workout-card:hover img {
-  transform: scale(0.95); /* image zoom-out */
+  transform: scale(0.95); 
 }
 
 @keyframes glowPulse {
@@ -324,7 +331,7 @@
 .enquiry-form button:hover {
   background: #d35400;
 }
-/* Base input styles */
+
 .enquiry-form input,
 .enquiry-form select,
 .enquiry-form textarea {
@@ -335,17 +342,17 @@
   background: #333;
   color: #f39c12;
   font-size: 1rem;
-  transition: all 0.3s ease; /* smooth transition */
-  outline: none; /* remove default browser outline */
+  transition: all 0.3s ease; 
+  outline: none; 
 }
-/* Glow animation keyframes */
+
 @keyframes glowPulse {
   0%   { box-shadow: 0 0 10px rgba(243,156,18,0.5); }
   50%  { box-shadow: 0 0 20px rgba(243,156,18,0.9); }
   100% { box-shadow: 0 0 10px rgba(243,156,18,0.5); }
 }
 
-/* Explore Workouts button glow */
+
 .hero-content .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
@@ -355,15 +362,15 @@
   border-radius: 5px;
   font-weight: bold;
   transition: background 0.3s ease;
-  animation: glowPulse 2s infinite; /* glowing effect */
+  animation: glowPulse 2s infinite; 
 }
 
 .hero-content .btn:hover {
   background: #d35400;
-  transform: scale(1.05); /* subtle zoom on hover */
+  transform: scale(1.05); 
 }
 
-/* What We Offer cards glow */
+
 .service-card {
   background: #222;
   border-radius: 10px;
@@ -371,23 +378,23 @@
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   transition: transform 0.3s ease;
-  animation: glowPulse 2s infinite; /* glowing effect */
+  animation: glowPulse 2s infinite;
 }
 
 .service-card:hover {
-  transform: translateY(-8px) scale(1.03); /* lift + zoom */
+  transform: translateY(-8px) scale(1.03); 
 }
 
-/* Focus animation */
+
 .enquiry-form input:focus,
 .enquiry-form select:focus,
 .enquiry-form textarea:focus {
-  background: #444; /* slightly lighter background */
-  box-shadow: 0 0 10px rgba(243,156,18,0.8); /* glowing orange border */
-  transform: scale(1.02); /* subtle zoom-in */
+  background: #444; 
+  box-shadow: 0 0 10px rgba(243,156,18,0.8); 
+  transform: scale(1.02); 
 }
 
-/* Label animation */
+
 .enquiry-form label {
   display: block;
   margin-bottom: 0.5rem;
@@ -401,6 +408,35 @@
 .enquiry-form textarea:focus + label {
   color: #f39c12; /* highlight label when field is active */
 }
+ @media (max-width: 768px) {
+    .navbar {
+      padding: 1rem;
+      flex-direction: column; /* Stacks logo and links */
+      gap: 1rem;
+    }
+
+    .nav-links {
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .carousel {
+      margin: 0; 
+    }
+
+    .scroll-btn {
+      display: none; 
+    }
+    carousel-track {
+      overflow-x: auto; 
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .enquiry-form {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  }
 
   </style>
 </head>
