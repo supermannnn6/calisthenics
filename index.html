@@ -438,6 +438,55 @@
       padding: 1.5rem;
     }
   }
+  footer {
+  background: #000;
+  padding: 3rem 1rem;
+  text-align: center;
+  border-top: 2px solid #dd8c0b;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-socials a {
+  color: #fff;
+  font-size: 2rem; 
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+}
+
+
+.footer-socials a:hover {
+  color: #dd8c0b; 
+  transform: translateY(-8px) scale(1.1);
+}
+
+footer p {
+  color: #888;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+@media (max-width: 480px) {
+  .footer-socials {
+    gap: 1.5rem;
+  }
+  .footer-socials a {
+    font-size: 1.8rem;
+  }
+}
+
 
   </style>
 </head>
@@ -634,9 +683,30 @@
   </form>
 </section>
 
-  <footer>
-    &copy; Shivam Tomar. All rights reserved.
-  </footer>
+<footer>
+  <div class="footer-container">
+    <div class="footer-socials">
+   
+      <a href="mailto:supermannnn6@gmail.com" title="Email Us">
+        <i class="fas fa-envelope"></i>
+      </a>
+      
+      <a href="https://x.com/SuperMa32593743" target="_blank" rel="noopener noreferrer" title="Follow on X">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+     
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" title="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      
+      <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+    <p>&copy; 2025 Calisthenics Journey. Stay Strong.</p>
+  </div>
+</footer>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -681,10 +751,9 @@
     track.appendChild(firstClone);
     track.insertBefore(lastClone, cards[0]);
 
-    // Recalculate cards to include clones
+    
     cards = document.querySelectorAll('.workout-card');
 
-    // Initial positioning to hide the lastClone
     track.style.transform = `translateX(${-cardScrollDistance * index}px)`;
 
     function updateCarousel() {
